@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/*
+ * Matchday broadcast: navy score-bug panels, chalk-white pitch lines,
+ * mowed-turf greens, and the referee's cards as the only loud colours.
+ */
+@theme {
+  --color-turf: #1f6b43;
+  --color-turf-deep: #154d31;
+  --color-turf-light: #2a8455;
+  --color-chalk: #f4f6f1;
+  --color-paper: #ffffff;
+  --color-ink: #10213a;
+  --color-ink-soft: #24385a;
+  --color-slate: #5b6878;
+  --color-rule: #d8ded6;
+  --color-card-yellow: #f6c915;
+  --color-card-yellow-deep: #c99f00;
+  --color-card-red: #d7263d;
+
+  --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --font-sans: "Barlow", system-ui, sans-serif;
+
+  --radius-chip: 6px;
+}
+
+@layer base {
+  html {
+    background: var(--color-chalk);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100dvh;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-card-yellow);
+    outline-offset: 2px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Mowed-grass bands, the one decorative surface in the app. */
+@utility pitch {
+  background-color: var(--color-turf);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-turf) 0 56px,
+    var(--color-turf-deep) 56px 112px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
