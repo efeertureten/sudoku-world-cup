@@ -135,9 +135,10 @@ describe.runIf(available)('game server (integration)', () => {
     const endB = next(b.socket, 'match:end', 60_000);
     let last = firstCorrect;
     for (const cell of empties.slice(1)) {
-      await sleep(140); // stay under the 8 moves/second limit
+      // Stay well under the 8 moves/second limit: the window also counts the moves made just before.
+      await sleep(170);
       last = await call(a.socket, 'match:move', { matchId, seq: ++seq, cell, value: Number(solution[cell]) });
-      expect(last.verdict).toBe('correct');
+      expect(last.verdict, JSON.stringify(last)).toBe('correct');
     }
     expect(last.completed).toBe(true);
 
@@ -237,7 +238,7 @@ describe.runIf(available)('game server (integration)', () => {
         cell,
         value: Number(solution[cell]),
       });
-      await sleep(130);
+      await sleep(170);
     }
     const end = await ended;
     const mine = end.results.find((r) => r.userId === e.id)!;
