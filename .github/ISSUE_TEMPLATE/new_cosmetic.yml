@@ -1,0 +1,32 @@
+name: New board theme or kit
+description: Propose a board theme or a jersey avatar (great first contribution, no code needed).
+labels: ["area/content", "good first issue"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [Board theme, Jersey avatar]
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name (Turkish and English)
+      placeholder: "Gece Maçı / Night Game"
+    validations:
+      required: true
+  - type: textarea
+    id: colors
+    attributes:
+      label: Colours and pattern
+      description: Hex colours for a theme, or primary/secondary colours, pattern and number for a kit.
+    validations:
+      required: true
+  - type: checkboxes
+    id: originality
+    attributes:
+      label: Originality
+      options:
+        - label: It does not copy a real club's or federation's kit, crest or trademark.
+          required: true

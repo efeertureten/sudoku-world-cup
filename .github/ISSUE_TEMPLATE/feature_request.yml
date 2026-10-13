@@ -1,0 +1,24 @@
+name: Feature idea
+description: Suggest something new for the game or the project.
+labels: ["type/feature", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the player (or contributor) need first, the solution second.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposed idea
+    validations:
+      required: true
+  - type: checkboxes
+    id: fairness
+    attributes:
+      label: Fair play
+      options:
+        - label: This does not reveal puzzle solutions to clients or weaken server-side validation.
+          required: true

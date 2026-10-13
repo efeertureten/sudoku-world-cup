@@ -1,0 +1,42 @@
+name: Bug report
+description: Something does not work the way it should.
+labels: ["type/bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time! If this is a way to cheat or a security problem,
+        please do **not** open a public issue; follow SECURITY.md instead.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Queue for a ranked match
+        2. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [Match board, Matchmaking or bots, Tournament, Leaderboards, Locker room, Accounts, Self-hosting / Docker, Other]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: v0.1.0 or a commit SHA
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      render: shell

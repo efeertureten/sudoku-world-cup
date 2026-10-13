@@ -1,0 +1,5 @@
+# Reviewers requested automatically for each area. Add maintainers here as the project grows.
+*                                    @efeertureten
+/packages/engine/                    @efeertureten
+/apps/server/src/modules/anticheat/  @efeertureten
+/apps/server/src/redis/scripts.ts    @efeertureten
