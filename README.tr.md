@@ -9,6 +9,8 @@
 
 [English](README.md) · [Mimari](docs/ARCHITECTURE.md) · [Socket protokolü](docs/PROTOCOL.md) · [Katkı rehberi](CONTRIBUTING.md)
 
+[![GitHub Codespaces'ta aç](https://github.com/codespaces/badge.svg)](https://codespaces.new/efeertureten/sudoku-world-cup?quickstart=1)
+
 <img src="docs/screenshots/match.png" width="860" alt="Canlı maç ekranı" />
 
 </div>
@@ -22,6 +24,14 @@
 - **Herkese açık maç tekrarları.** Biten her maçın iki tahtayı yan yana oynatan, paylaşılabilir bir tekrarı var. Bir düğmeyle bulmaca tarayıcında seed'den yeniden üretilir ve maçın adil oynandığı doğrulanır.
 - **İlerleme.** Kupalar, altı lig, altın; JSON ile tanımlanan, kilidi açılan tahta temaları ve formalar.
 - **Adil oyun.** Çözüm ve seed maç boyunca tarayıcıya hiç gitmez; hamleler Redis içinde atomik doğrulanır; biten maçlar seed'iyle yayınlanır, herkes doğrulayabilir.
+
+## Tarayıcıda dene
+
+Kurulum gerekmez: yukarıdaki **Open in GitHub Codespaces** düğmesine bas ve yaklaşık iki dakika bekle. Codespace her şeyi derleyip başlatır ve oyunu 8080 portunda açar (açılmazsa **Ports** sekmesinde 8080'in yanındaki küre simgesine tıkla).
+
+- **Bota karşı:** *Rakip bul*'a bas; 5 saniye içinde bir bot gelir.
+- **Bir insana karşı:** aynı adresi gizli pencerede de aç ve iki pencereden sıraya gir, ya da Ports sekmesinde 8080'i *Public* yapıp bağlantıyı bir arkadaşına gönder.
+- **Kupa:** *Kupaya katıl*'a bas; 60 saniye sonra boş koltukları botlar doldurur.
 
 ## Hızlı başlangıç
 

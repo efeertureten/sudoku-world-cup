@@ -1,0 +1,30 @@
+{
+  "name": "Sudoku World Cup",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "4gb"
+  },
+  "containerEnv": {
+    "COREPACK_ENABLE_DOWNLOAD_PROMPT": "0"
+  },
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "Sudoku World Cup", "onAutoForward": "openBrowser" },
+    "3000": { "label": "API (pnpm dev)", "onAutoForward": "silent" },
+    "5173": { "label": "Web (pnpm dev)", "onAutoForward": "notify" }
+  },
+  "postCreateCommand": "sudo corepack enable && pnpm install --frozen-lockfile",
+  "postStartCommand": "bash .devcontainer/start.sh",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md"]
+    },
+    "vscode": {
+      "extensions": ["biomejs.biome"]
+    }
+  }
+}

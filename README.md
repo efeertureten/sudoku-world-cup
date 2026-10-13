@@ -11,6 +11,8 @@ Two players get the same board at the same moment. First to finish wins, and eve
 [![License: MIT](https://img.shields.io/badge/license-MIT-1f6b43.svg)](LICENSE)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-f6c915.svg)](CONTRIBUTING.md)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/efeertureten/sudoku-world-cup?quickstart=1)
+
 [Türkçe](README.tr.md) · [Architecture](docs/ARCHITECTURE.md) · [Socket protocol](docs/PROTOCOL.md) · [Contributing](CONTRIBUTING.md)
 
 <img src="docs/screenshots/match.png" width="860" alt="A live match: the score bug at the top shows both players' progress and referee cards for mistakes, the board on the left, the number pad and the opponent's solved cells on the right." />
@@ -26,6 +28,14 @@ Two players get the same board at the same moment. First to finish wins, and eve
 - **Public replays.** Every finished match gets a shareable replay of both boards side by side, and a button that regenerates the puzzle from its seed in your browser to prove it was fair.
 - **Progression.** Trophies and six leagues, coins, and unlockable board themes and kits defined as plain JSON.
 - **Fair by design.** Solutions and seeds never reach the browser during a match, moves are validated atomically in Redis, and finished matches are published with their seed so anyone can verify them.
+
+## Try it in your browser
+
+No installation: press **Open in GitHub Codespaces** above and wait about two minutes. The codespace builds and starts the whole stack, then opens the game on port 8080 (if it does not, open the **Ports** tab and click the globe next to 8080).
+
+- **Play a bot:** press *Find opponent*; a bot joins after 5 seconds.
+- **Play a person:** open the same address in a private window and queue from both, or set port 8080 to *Public* in the Ports tab and send the link to a friend.
+- **Play a cup:** press *Join the cup*; bots fill the empty seats after 60 seconds.
 
 ## Quick start
 
