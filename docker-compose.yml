@@ -1,0 +1,90 @@
+# One command to run everything:  docker compose up --build
+# Then open http://localhost:8080
+#
+# Every value has a default, so no .env file is required. Copy .env.example
+# to .env to override ports, credentials or game tuning.
+
+name: sudoku-world-cup
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-sudoku}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sudoku}
+      POSTGRES_DB: ${POSTGRES_DB:-sudoku}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    # Only live matches, queues and sessions live here; nothing to persist.
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  server:
+    build:
+      context: .
+      dockerfile: infra/docker/server.Dockerfile
+    image: sudoku-world-cup/server:${TAG:-local}
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment: &server-env
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgres://${POSTGRES_USER:-sudoku}:${POSTGRES_PASSWORD:-sudoku}@postgres:5432/${POSTGRES_DB:-sudoku}
+      REDIS_URL: redis://redis:6379
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      BOT_FALLBACK_MS: ${BOT_FALLBACK_MS:-5000}
+      MATCH_TIME_LIMIT_MS: ${MATCH_TIME_LIMIT_MS:-900000}
+      TOURNAMENT_FILL_MS: ${TOURNAMENT_FILL_MS:-60000}
+      PUZZLE_POOL_TARGET: ${PUZZLE_POOL_TARGET:-300}
+
+  worker:
+    # Same image as the server (the second build is fully cached).
+    build:
+      context: .
+      dockerfile: infra/docker/server.Dockerfile
+    image: sudoku-world-cup/server:${TAG:-local}
+    restart: unless-stopped
+    command: ["node", "--enable-source-maps", "dist/worker.js"]
+    depends_on:
+      server:
+        condition: service_healthy
+    environment:
+      <<: *server-env
+      RUN_MIGRATIONS: "false"
+    healthcheck:
+      disable: true
+
+  web:
+    build:
+      context: .
+      dockerfile: infra/docker/web.Dockerfile
+    image: sudoku-world-cup/web:${TAG:-local}
+    restart: unless-stopped
+    depends_on:
+      server:
+        condition: service_healthy
+    ports:
+      - "${HTTP_PORT:-8080}:8080"
+
+volumes:
+  postgres-data:
