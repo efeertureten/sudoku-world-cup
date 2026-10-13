@@ -2,7 +2,7 @@
 # Builds the API/WebSocket server and the puzzle worker into one image.
 # The worker is the same image started with `node dist/worker.js`.
 
-FROM node:22-alpine AS build
+FROM node:26-alpine AS build
 WORKDIR /repo
 RUN corepack enable
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
@@ -17,7 +17,7 @@ COPY packages packages
 COPY apps/server apps/server
 RUN pnpm --filter @swcup/server build
 
-FROM node:22-alpine AS runtime
+FROM node:26-alpine AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
 # The bundle inlines every JavaScript dependency; only the native argon2 binding is installed here.
