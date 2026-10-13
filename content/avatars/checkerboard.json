@@ -1,0 +1,20 @@
+{
+  "slug": "checkerboard",
+  "kind": "avatar",
+  "name": {
+    "tr": "Dama",
+    "en": "Checkerboard"
+  },
+  "rarity": "epic",
+  "unlock": {
+    "type": "trophies",
+    "value": 1000
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#D7263D",
+    "secondary": "#FFFFFF",
+    "pattern": "checkers",
+    "number": 5
+  }
+}

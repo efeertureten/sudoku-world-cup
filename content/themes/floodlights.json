@@ -1,0 +1,26 @@
+{
+  "slug": "floodlights",
+  "kind": "board_theme",
+  "name": {
+    "tr": "Projektör Işıkları",
+    "en": "Floodlights"
+  },
+  "rarity": "rare",
+  "unlock": {
+    "type": "trophies",
+    "value": 300
+  },
+  "colors": {
+    "frame": "#0A1A33",
+    "cell": "#13284A",
+    "cellAlt": "#172F55",
+    "line": "#23406B",
+    "given": "#F5F7F2",
+    "input": "#F6C915",
+    "accent": "#2C5A99",
+    "peer": "#1B3660",
+    "same": "#24477A",
+    "error": "#FF5A6E",
+    "note": "#9FB3CF"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "ice-derby",
+  "kind": "board_theme",
+  "name": {
+    "tr": "Buz Derbisi",
+    "en": "Ice Derby"
+  },
+  "rarity": "epic",
+  "unlock": {
+    "type": "trophies",
+    "value": 1000
+  },
+  "colors": {
+    "frame": "#2B6CA3",
+    "cell": "#F4F9FD",
+    "cellAlt": "#E8F2FA",
+    "line": "#C2D9EC",
+    "given": "#12324F",
+    "input": "#2B6CA3",
+    "accent": "#9FD3F5",
+    "peer": "#E1EEF8",
+    "same": "#C8E2F4",
+    "error": "#D7263D",
+    "note": "#5B7488"
+  }
+}

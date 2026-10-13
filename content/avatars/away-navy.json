@@ -1,0 +1,19 @@
+{
+  "slug": "away-navy",
+  "kind": "avatar",
+  "name": {
+    "tr": "Deplasman",
+    "en": "Away Kit"
+  },
+  "rarity": "common",
+  "unlock": {
+    "type": "default"
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#10213A",
+    "secondary": "#F6C915",
+    "pattern": "plain",
+    "number": 7
+  }
+}

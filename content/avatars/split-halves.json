@@ -1,0 +1,20 @@
+{
+  "slug": "split-halves",
+  "kind": "avatar",
+  "name": {
+    "tr": "İki Yarı",
+    "en": "Split Halves"
+  },
+  "rarity": "rare",
+  "unlock": {
+    "type": "price",
+    "value": 200
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#1D4ED8",
+    "secondary": "#F97316",
+    "pattern": "halves",
+    "number": 4
+  }
+}

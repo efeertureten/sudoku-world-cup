@@ -1,0 +1,20 @@
+{
+  "slug": "golden-captain",
+  "kind": "avatar",
+  "name": {
+    "tr": "Altın Kaptan",
+    "en": "Golden Captain"
+  },
+  "rarity": "legendary",
+  "unlock": {
+    "type": "tournament_wins",
+    "value": 1
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#D4A72C",
+    "secondary": "#1A1610",
+    "pattern": "plain",
+    "number": 26
+  }
+}

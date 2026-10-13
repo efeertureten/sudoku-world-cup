@@ -1,0 +1,19 @@
+{
+  "slug": "home-white",
+  "kind": "avatar",
+  "name": {
+    "tr": "Ev Sahibi",
+    "en": "Home Kit"
+  },
+  "rarity": "common",
+  "unlock": {
+    "type": "default"
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#F5F7F2",
+    "secondary": "#10213A",
+    "pattern": "plain",
+    "number": 10
+  }
+}

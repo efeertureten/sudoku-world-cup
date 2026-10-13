@@ -1,0 +1,26 @@
+{
+  "slug": "sunset-terrace",
+  "kind": "board_theme",
+  "name": {
+    "tr": "Gün Batımı Tribünü",
+    "en": "Sunset Terrace"
+  },
+  "rarity": "rare",
+  "unlock": {
+    "type": "wins",
+    "value": 25
+  },
+  "colors": {
+    "frame": "#4A2B5E",
+    "cell": "#FFF4EA",
+    "cellAlt": "#FBE8DA",
+    "line": "#E8C7B3",
+    "given": "#3A1F4B",
+    "input": "#D9542E",
+    "accent": "#FFB070",
+    "peer": "#F7E1D3",
+    "same": "#F4C9AE",
+    "error": "#C2185B",
+    "note": "#7D5D6E"
+  }
+}

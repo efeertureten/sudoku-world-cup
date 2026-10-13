@@ -1,0 +1,25 @@
+{
+  "slug": "classic-pitch",
+  "kind": "board_theme",
+  "name": {
+    "tr": "Klasik Saha",
+    "en": "Classic Pitch"
+  },
+  "rarity": "common",
+  "unlock": {
+    "type": "default"
+  },
+  "colors": {
+    "frame": "#1F6B43",
+    "cell": "#FBFBF7",
+    "cellAlt": "#F1F5EE",
+    "line": "#C9D6C8",
+    "given": "#10213A",
+    "input": "#1D7A4C",
+    "accent": "#FCE68A",
+    "peer": "#E6EFE3",
+    "same": "#CFE6D6",
+    "error": "#D7263D",
+    "note": "#5C6B60"
+  }
+}

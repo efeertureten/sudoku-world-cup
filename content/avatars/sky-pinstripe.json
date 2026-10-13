@@ -1,0 +1,20 @@
+{
+  "slug": "sky-pinstripe",
+  "kind": "avatar",
+  "name": {
+    "tr": "Gök Çubuklu",
+    "en": "Sky Pinstripe"
+  },
+  "rarity": "epic",
+  "unlock": {
+    "type": "price",
+    "value": 300
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#8CC8EE",
+    "secondary": "#0E2A47",
+    "pattern": "pinstripes",
+    "number": 3
+  }
+}

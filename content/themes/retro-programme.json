@@ -1,0 +1,26 @@
+{
+  "slug": "retro-programme",
+  "kind": "board_theme",
+  "name": {
+    "tr": "Retro Maç Programı",
+    "en": "Retro Programme"
+  },
+  "rarity": "epic",
+  "unlock": {
+    "type": "price",
+    "value": 400
+  },
+  "colors": {
+    "frame": "#7A2E1D",
+    "cell": "#F3E7CF",
+    "cellAlt": "#EADAB9",
+    "line": "#CDB78F",
+    "given": "#3B2416",
+    "input": "#1E4E79",
+    "accent": "#E7B04A",
+    "peer": "#EBDDC0",
+    "same": "#E1C99A",
+    "error": "#B3261E",
+    "note": "#6E5843"
+  }
+}

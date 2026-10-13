@@ -1,0 +1,26 @@
+{
+  "slug": "tactics-board",
+  "kind": "board_theme",
+  "name": {
+    "tr": "Taktik Tahtası",
+    "en": "Tactics Board"
+  },
+  "rarity": "rare",
+  "unlock": {
+    "type": "price",
+    "value": 250
+  },
+  "colors": {
+    "frame": "#2B3A33",
+    "cell": "#34463D",
+    "cellAlt": "#3A4D43",
+    "line": "#4E6358",
+    "given": "#F2F2EA",
+    "input": "#FFD866",
+    "accent": "#557263",
+    "peer": "#3F5348",
+    "same": "#4A6355",
+    "error": "#FF7B7B",
+    "note": "#B7C6BC"
+  }
+}

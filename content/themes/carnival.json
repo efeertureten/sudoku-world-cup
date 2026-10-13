@@ -1,0 +1,26 @@
+{
+  "slug": "carnival",
+  "kind": "board_theme",
+  "name": {
+    "tr": "Karnaval",
+    "en": "Carnival"
+  },
+  "rarity": "epic",
+  "unlock": {
+    "type": "trophies",
+    "value": 1800
+  },
+  "colors": {
+    "frame": "#0B6B3A",
+    "cell": "#FFFDF2",
+    "cellAlt": "#FFF6CC",
+    "line": "#E9DC9A",
+    "given": "#0B2E6B",
+    "input": "#0B6B3A",
+    "accent": "#FFD21F",
+    "peer": "#FFF3B8",
+    "same": "#D8F0C0",
+    "error": "#D7263D",
+    "note": "#6B6B4A"
+  }
+}

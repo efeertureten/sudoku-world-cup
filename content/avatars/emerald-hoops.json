@@ -1,0 +1,20 @@
+{
+  "slug": "emerald-hoops",
+  "kind": "avatar",
+  "name": {
+    "tr": "Zümrüt Halka",
+    "en": "Emerald Hoops"
+  },
+  "rarity": "rare",
+  "unlock": {
+    "type": "trophies",
+    "value": 400
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#0F7B45",
+    "secondary": "#FFFFFF",
+    "pattern": "hoops",
+    "number": 8
+  }
+}

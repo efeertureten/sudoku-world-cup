@@ -1,0 +1,20 @@
+{
+  "slug": "classic-stripes",
+  "kind": "avatar",
+  "name": {
+    "tr": "Klasik Çizgili",
+    "en": "Classic Stripes"
+  },
+  "rarity": "common",
+  "unlock": {
+    "type": "wins",
+    "value": 5
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#C8102E",
+    "secondary": "#FFFFFF",
+    "pattern": "stripes",
+    "number": 9
+  }
+}

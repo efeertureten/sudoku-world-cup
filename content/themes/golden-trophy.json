@@ -1,0 +1,26 @@
+{
+  "slug": "golden-trophy",
+  "kind": "board_theme",
+  "name": {
+    "tr": "Altın Kupa",
+    "en": "Golden Trophy"
+  },
+  "rarity": "legendary",
+  "unlock": {
+    "type": "tournament_wins",
+    "value": 1
+  },
+  "colors": {
+    "frame": "#1A1610",
+    "cell": "#26201A",
+    "cellAlt": "#2C251D",
+    "line": "#3D3327",
+    "given": "#F3E6C4",
+    "input": "#E8B931",
+    "accent": "#6B5520",
+    "peer": "#322A20",
+    "same": "#4A3C22",
+    "error": "#FF6B5B",
+    "note": "#B9A88A"
+  }
+}

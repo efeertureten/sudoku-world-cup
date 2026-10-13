@@ -1,0 +1,20 @@
+{
+  "slug": "neon-keeper",
+  "kind": "avatar",
+  "name": {
+    "tr": "Neon Kaleci",
+    "en": "Neon Keeper"
+  },
+  "rarity": "epic",
+  "unlock": {
+    "type": "wins",
+    "value": 50
+  },
+  "art": {
+    "shape": "jersey",
+    "primary": "#B6F23A",
+    "secondary": "#1A1A1A",
+    "pattern": "hoops",
+    "number": 1
+  }
+}
