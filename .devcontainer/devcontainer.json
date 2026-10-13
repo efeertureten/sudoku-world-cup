@@ -17,7 +17,7 @@
     "3000": { "label": "API (pnpm dev)", "onAutoForward": "silent" },
     "5173": { "label": "Web (pnpm dev)", "onAutoForward": "notify" }
   },
-  "postCreateCommand": "sudo corepack enable && pnpm install --frozen-lockfile",
+  "postCreateCommand": "sudo corepack enable && pnpm install --frozen-lockfile || echo 'pnpm install failed: the game still runs in Docker, only pnpm dev needs it'",
   "postStartCommand": "bash .devcontainer/start.sh",
   "customizations": {
     "codespaces": {
