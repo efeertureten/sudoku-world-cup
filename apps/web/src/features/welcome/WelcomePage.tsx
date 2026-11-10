@@ -65,7 +65,7 @@ export function WelcomePage() {
       <section className="pitch relative flex flex-col justify-between gap-10 overflow-hidden px-6 py-8 text-white sm:px-12 sm:py-12">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-2.5">
-            <img src="/favicon.svg" alt="" className="h-8 w-8" />
+            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" className="h-8 w-8" />
             <span className="font-display font-extrabold text-xl tracking-wide">Sudoku World Cup</span>
           </span>
           <button
@@ -137,6 +137,11 @@ export function WelcomePage() {
             {t('welcome.haveAccount')}{' '}
             <Link to="/login" className="font-semibold text-turf underline-offset-2 hover:underline">
               {t('welcome.login')}
+            </Link>
+          </p>
+          <p className="text-center text-sm">
+            <Link to="/practice" className="font-semibold text-ink underline underline-offset-2">
+              {t('practice.linkAnonymous')}
             </Link>
           </p>
         </form>

@@ -222,6 +222,39 @@ const tr = {
   'common.retry': 'Tekrar dene',
   'common.offline': 'Sunucuyla bağlantı kesildi. Yeniden bağlanılıyor…',
   'common.error': 'Bir şeyler ters gitti.',
+  'common.serverDown':
+    'Sunucuya ulaşılamadı. Online maçlar ve kupa için sunucu gerekir, ama solo antrenman internetsiz de çalışır.',
+  'common.staticDemo':
+    'Bu, sunucusuz tarayıcı sürümü. Online maçlar ve kupa için oyunu Docker ile çalıştır (README). Solo antrenman burada hemen oynanır.',
+
+  'practice.title': 'Solo antrenman',
+  'practice.lead': 'Rakipsiz, hesapsız ve sunucusuz. Tahta tarayıcında üretilir, ilerlemen kaydedilir.',
+  'practice.link': 'Solo antrenman',
+  'practice.linkDesc': 'Rakip yok, sunucu gerekmez. Zorluğu seç ve rahatça çöz.',
+  'practice.linkAnonymous': 'Hesap açmadan antrenman yap',
+  'practice.new': 'Yeni oyun',
+  'practice.generating': 'Tahta hazırlanıyor…',
+  'practice.time': 'Süre',
+  'practice.mistakes': 'Hata',
+  'practice.hints': 'İpucu',
+  'practice.hint': 'İpucu',
+  'practice.undo': 'Geri al',
+  'practice.best': 'En iyi süre',
+  'practice.noBest': 'Henüz yok',
+  'practice.paused': 'Duraklatıldı',
+  'practice.resume': 'Devam et',
+  'practice.pause': 'Duraklat',
+  'practice.selectCell': 'Önce bir kare seç.',
+  'practice.wonTitle': 'Tahta tamam!',
+  'practice.wonLine': '{difficulty} tahtayı {time} sürede bitirdin.',
+  'practice.newBest': 'Yeni kişisel rekor!',
+  'practice.hintsNoBest': 'İpucu kullanılan oyunlar rekora yazılmaz.',
+  'practice.playAgain': 'Yeni tahta',
+  'practice.keys':
+    'Klavye: oklar gezinir, 1–9 yazar, Shift+rakam not alır, N not modu, H ipucu, Ctrl+Z geri alır.',
+  'practice.confirmNew': 'Süren devam ediyor. Yeni tahtaya geçilsin mi?',
+  'practice.confirmYes': 'Evet, yeni tahta',
+  'practice.confirmNo': 'Vazgeç',
 };
 
 export type MessageKey = keyof typeof tr;
@@ -445,6 +478,40 @@ const en: Dictionary = {
   'common.retry': 'Try again',
   'common.offline': 'Lost connection to the server. Reconnecting…',
   'common.error': 'Something went wrong.',
+  'common.serverDown':
+    'The server is unreachable. Online matches and cups need it, but solo practice works offline.',
+  'common.staticDemo':
+    'This is the browser-only version without a server. For online matches and cups, run the game with Docker (see the README). Solo practice works right here.',
+
+  'practice.title': 'Solo practice',
+  'practice.lead':
+    'No opponent, no account, no server. The board is made in your browser and your progress is saved.',
+  'practice.link': 'Solo practice',
+  'practice.linkDesc': 'No opponent and no server needed. Pick a difficulty and take your time.',
+  'practice.linkAnonymous': 'Practice without an account',
+  'practice.new': 'New game',
+  'practice.generating': 'Preparing the board…',
+  'practice.time': 'Time',
+  'practice.mistakes': 'Mistakes',
+  'practice.hints': 'Hints',
+  'practice.hint': 'Hint',
+  'practice.undo': 'Undo',
+  'practice.best': 'Best time',
+  'practice.noBest': 'None yet',
+  'practice.paused': 'Paused',
+  'practice.resume': 'Resume',
+  'practice.pause': 'Pause',
+  'practice.selectCell': 'Select a cell first.',
+  'practice.wonTitle': 'Board complete!',
+  'practice.wonLine': 'You finished the {difficulty} board in {time}.',
+  'practice.newBest': 'New personal best!',
+  'practice.hintsNoBest': 'Games that used hints do not count towards your best time.',
+  'practice.playAgain': 'New board',
+  'practice.keys':
+    'Keyboard: arrows move, 1–9 type, Shift+digit pencils a note, N toggles notes, H hints, Ctrl+Z undoes.',
+  'practice.confirmNew': 'Your game is still in progress. Start a new board?',
+  'practice.confirmYes': 'Yes, new board',
+  'practice.confirmNo': 'Cancel',
 };
 
 export type Locale = 'tr' | 'en';

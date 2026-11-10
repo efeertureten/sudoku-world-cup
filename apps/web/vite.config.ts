@@ -5,6 +5,8 @@ import { defineConfig } from 'vite';
 const api = process.env.API_ORIGIN ?? 'http://localhost:3000';
 
 export default defineConfig({
+  // Static hosting under a sub-path (GitHub Pages) sets VITE_BASE=/sudoku-world-cup/.
+  base: process.env.VITE_BASE ?? '/',
   plugins: [react(), tailwindcss()],
   server: {
     port: 5173,

@@ -22,6 +22,7 @@ Two players get the same board at the same moment. First to finish wins, and eve
 ## Features
 
 - **Head-to-head races.** Both players solve the same unique-solution puzzle; the server validates every digit. A wrong digit freezes your input for 3 seconds, and the third mistake is a red card.
+- **Solo practice.** No opponent, no account and no server: pick a difficulty and play in the browser with pencil notes, hints, undo, pause and personal best times. It is the only mode that works offline.
 - **Instant matchmaking.** Rating-based queues whose search window widens while you wait. If nobody turns up within 5 seconds, a human-like bot (always labelled as a bot) takes the other seat.
 - **World Cup knockouts.** 16-player single-elimination cups, seeded by trophies, harder puzzle every round, bots fill empty seats.
 - **Country leaderboard.** Wins score points for the country you represent, by total or by each nation's best 50 players. Wins against bots count a little, with a daily cap, so small servers have a living table that nobody can farm.
@@ -31,7 +32,9 @@ Two players get the same board at the same moment. First to finish wins, and eve
 
 ## Try it in your browser
 
-No installation: press **Open in GitHub Codespaces** above and wait about two minutes. The codespace builds and starts the whole stack, then opens the game on port 8080 (if it does not, open the **Ports** tab and click the globe next to 8080).
+**Just want to play?** Open **https://efeertureten.github.io/sudoku-world-cup/** and press *Solo practice*. It is the browser-only build, with no server and nothing to install. Online matches, bots and cups need the full stack, which you can start with Codespaces or Docker below. (Maintainers: enable it once under *Settings > Pages > Source: GitHub Actions*; the `Pages` workflow does the rest.)
+
+For the full game with no installation: press **Open in GitHub Codespaces** above and wait about two minutes. The codespace builds and starts the whole stack, then opens the game on port 8080 (if it does not, open the **Ports** tab and click the globe next to 8080).
 
 - **Play a bot:** press *Find opponent*; a bot joins after 5 seconds.
 - **Play a person:** open the same address in a private window and queue from both, or set port 8080 to *Public* in the Ports tab and send the link to a friend.

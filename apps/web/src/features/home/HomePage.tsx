@@ -167,6 +167,15 @@ export function HomePage() {
               {t('home.play')}
             </button>
           </div>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-rule border-t pt-4">
+            <p className="max-w-[16rem] text-slate text-sm">{t('practice.linkDesc')}</p>
+            <Link
+              to="/practice"
+              className="rounded-lg bg-chalk px-4 py-2 font-semibold text-ink text-sm ring-1 ring-rule hover:ring-ink/40"
+            >
+              {t('practice.link')}
+            </Link>
+          </div>
         </section>
 
         <section className="rounded-xl bg-ink p-5 text-white">
