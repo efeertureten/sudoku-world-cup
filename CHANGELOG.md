@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+
+### Added
+
+- Solo practice (`/practice`): a single-player mode that runs entirely in the browser, with four difficulties, pencil notes, hints, undo, pause, keyboard play, automatic resume after a reload and personal best times. It needs no account and no server.
+- A browser-only build for GitHub Pages (`Pages` workflow, `VITE_BASE` and `VITE_STATIC`), so the game can be opened and played from a link without Docker.
+
+### Changed
+
+- When the server cannot be reached the client now offers solo practice instead of a dead-end error screen.
+
 ## [0.1.0] - 2026-10-13
 
 First public version.

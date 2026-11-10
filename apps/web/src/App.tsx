@@ -19,12 +19,18 @@ const LockerPage = lazy(() =>
 const ProfilePage = lazy(() =>
   import('./features/profile/ProfilePage').then((m) => ({ default: m.ProfilePage })),
 );
+const PracticePage = lazy(() =>
+  import('./features/practice/PracticePage').then((m) => ({ default: m.PracticePage })),
+);
 const ReplayPage = lazy(() =>
   import('./features/replay/ReplayPage').then((m) => ({ default: m.ReplayPage })),
 );
 const TournamentPage = lazy(() =>
   import('./features/tournament/TournamentPage').then((m) => ({ default: m.TournamentPage })),
 );
+
+/** True for the GitHub Pages build, which ships the client only (see .github/workflows/pages.yml). */
+const isStaticBuild = import.meta.env.VITE_STATIC === 'true';
 
 function PageFallback() {
   const t = useT();
@@ -39,6 +45,7 @@ function SignedIn() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/match" element={<MatchPage />} />
+          <Route path="/practice" element={<PracticePage />} />
           <Route path="/cup" element={<TournamentPage />} />
           <Route path="/cup/:id" element={<TournamentPage />} />
           <Route path="/standings" element={<LeaderboardPage />} />
@@ -53,27 +60,46 @@ function SignedIn() {
   );
 }
 
-/** Replays are public links; signed-out visitors get them with a slim header and a way in. */
+/** Replays and solo practice work without an account; this is their slim header. */
 function PublicFrame({ children }: { children: ReactNode }) {
   const t = useT();
+  const status = useSession((s) => s.status);
   return (
     <div className="min-h-dvh">
       <header className="bg-ink text-white">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4">
-          <Link to="/welcome" className="flex items-center gap-2.5">
-            <img src="/favicon.svg" alt="" className="h-7 w-7" />
+          <Link to={status === 'anonymous' ? '/welcome' : '/practice'} className="flex items-center gap-2.5">
+            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" className="h-7 w-7" />
             <span className="font-display font-extrabold text-xl tracking-wide">Sudoku World Cup</span>
           </Link>
-          <Link
-            to="/welcome"
-            className="rounded-md bg-card-yellow px-3 py-1.5 font-semibold text-ink text-sm"
-          >
-            {t('welcome.submit')}
-          </Link>
+          {status === 'anonymous' && (
+            <Link
+              to="/welcome"
+              className="rounded-md bg-card-yellow px-3 py-1.5 font-semibold text-ink text-sm"
+            >
+              {t('welcome.submit')}
+            </Link>
+          )}
         </div>
       </header>
       <main className="mx-auto w-full max-w-6xl px-4 pt-5 pb-10">{children}</main>
     </div>
+  );
+}
+
+/** Solo practice needs no server, so it is reachable while loading, offline and signed out. */
+function practiceRoute() {
+  return (
+    <Route
+      path="/practice"
+      element={
+        <PublicFrame>
+          <Suspense fallback={<PageFallback />}>
+            <PracticePage />
+          </Suspense>
+        </PublicFrame>
+      }
+    />
   );
 }
 
@@ -87,25 +113,54 @@ function Gate() {
 
   if (status === 'loading') {
     return (
-      <div className="pitch grid min-h-dvh place-items-center text-white">
-        <p className="font-display font-extrabold text-3xl">{t('common.loading')}</p>
-      </div>
+      <Routes>
+        {practiceRoute()}
+        <Route
+          path="*"
+          element={
+            <div className="pitch grid min-h-dvh place-items-center text-white">
+              <p className="font-display font-extrabold text-3xl">{t('common.loading')}</p>
+            </div>
+          }
+        />
+      </Routes>
     );
   }
   if (status === 'error') {
     return (
-      <div className="grid min-h-dvh place-items-center p-6 text-center">
-        <div>
-          <p className="font-semibold">{t('common.error')}</p>
-          <button
-            type="button"
-            onClick={() => void bootstrap()}
-            className="mt-3 rounded-md bg-ink px-4 py-2 text-white"
-          >
-            {t('common.retry')}
-          </button>
-        </div>
-      </div>
+      <Routes>
+        {practiceRoute()}
+        <Route
+          path="*"
+          element={
+            <div className="pitch grid min-h-dvh place-items-center p-6 text-center text-white">
+              <div className="max-w-md">
+                <h1 className="text-5xl">Sudoku World Cup</h1>
+                <p className="mt-4 text-white/85">
+                  {t(isStaticBuild ? 'common.staticDemo' : 'common.serverDown')}
+                </p>
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                  <Link
+                    to="/practice"
+                    className="rounded-lg bg-card-yellow px-6 py-3 font-display font-extrabold text-2xl text-ink"
+                  >
+                    {t('practice.link')}
+                  </Link>
+                  {!isStaticBuild && (
+                    <button
+                      type="button"
+                      onClick={() => void bootstrap()}
+                      className="rounded-lg px-4 py-3 font-semibold text-white ring-1 ring-white/40 hover:bg-white/10"
+                    >
+                      {t('common.retry')}
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          }
+        />
+      </Routes>
     );
   }
   if (status === 'anonymous') {
@@ -113,6 +168,7 @@ function Gate() {
       <Routes>
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        {practiceRoute()}
         <Route
           path="/m/:id"
           element={
@@ -138,7 +194,7 @@ function Gate() {
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <Gate />
     </BrowserRouter>
   );

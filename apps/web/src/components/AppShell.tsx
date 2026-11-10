@@ -67,7 +67,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-30 bg-ink text-white">
         <div className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4">
           <NavLink to="/" className="flex items-center gap-2.5" aria-label="Sudoku World Cup">
-            <img src="/favicon.svg" alt="" className="h-7 w-7" />
+            <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" className="h-7 w-7" />
             <span className="font-display font-extrabold text-xl tracking-wide">Sudoku World Cup</span>
           </NavLink>
           <nav className="hidden flex-1 items-center gap-1 md:flex" aria-label="Main">

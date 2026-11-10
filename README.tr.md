@@ -18,6 +18,7 @@
 ## Özellikler
 
 - **Kafa kafaya yarış.** İki oyuncu tek çözümlü aynı bulmacayı çözer; her rakamı sunucu doğrular. Yanlış rakam girişi 3 saniye dondurur, üçüncü hata kırmızı karttır.
+- **Solo antrenman.** Rakip yok, hesap yok, sunucu yok: zorluğu seç, tarayıcıda not, ipucu, geri alma, duraklatma ve kişisel rekorlarla oyna. İnternetsiz çalışan tek mod bu.
 - **Anında eşleştirme.** Puan tabanlı kuyruk; beklerken arama aralığı genişler. 5 saniyede rakip çıkmazsa insan gibi oynayan, her zaman "Bot" rozetiyle gösterilen bir bot gelir.
 - **World Cup kupaları.** 16 kişilik tek eleme; kupaya göre seri başı, her turda daha zor bulmaca, boş koltuklara botlar.
 - **Ülke sıralaması.** Galibiyetler temsil ettiğin ülkeye puan yazar; toplam puana ya da her ülkenin en iyi 50 oyuncusuna göre sıralanır. Botlara karşı galibiyetler de günlük sınırla biraz puan getirir; böylece küçük sunucularda da tablo canlı kalır ama kimse botlarla puan kasamaz.
@@ -27,7 +28,9 @@
 
 ## Tarayıcıda dene
 
-Kurulum gerekmez: yukarıdaki **Open in GitHub Codespaces** düğmesine bas ve yaklaşık iki dakika bekle. Codespace her şeyi derleyip başlatır ve oyunu 8080 portunda açar (açılmazsa **Ports** sekmesinde 8080'in yanındaki küre simgesine tıkla).
+**Sadece oynamak mı istiyorsun?** **https://efeertureten.github.io/sudoku-world-cup/** adresini aç ve *Solo antrenman*'a bas. Bu, sunucusuz tarayıcı sürümü; hiçbir şey kurmana gerek yok. Online maç, bot ve kupa için tam sistem gerekir; onu aşağıdaki Codespaces veya Docker ile başlatabilirsin. (Bakım yapanlar için: *Settings > Pages > Source: GitHub Actions* ayarını bir kez aç; gerisini `Pages` iş akışı yapar.)
+
+Tam oyun için kurulumsuz yol: yukarıdaki **Open in GitHub Codespaces** düğmesine bas ve yaklaşık iki dakika bekle. Codespace her şeyi derleyip başlatır ve oyunu 8080 portunda açar (açılmazsa **Ports** sekmesinde 8080'in yanındaki küre simgesine tıkla).
 
 - **Bota karşı:** *Rakip bul*'a bas; 5 saniye içinde bir bot gelir.
 - **Bir insana karşı:** aynı adresi gizli pencerede de aç ve iki pencereden sıraya gir, ya da Ports sekmesinde 8080'i *Public* yapıp bağlantıyı bir arkadaşına gönder.

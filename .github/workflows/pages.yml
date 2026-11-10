@@ -1,0 +1,50 @@
+name: Pages
+
+# Publishes the web client alone (no backend) so anyone can open a link and play solo practice.
+# Online matches and cups still need the full stack: see "Quick start" in the README.
+#
+# One-time setup: Settings > Pages > Build and deployment > Source: GitHub Actions.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy the browser version
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build the web client
+        run: pnpm --filter @swcup/web build
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_STATIC: "true"
+      # GitHub Pages has no SPA fallback; serving index.html as 404.html lets deep links such as
+      # /practice load the app instead of a 404 page.
+      - run: cp apps/web/dist/index.html apps/web/dist/404.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -22,6 +22,12 @@ export const useSession = create<SessionState>((set, get) => ({
   connected: false,
 
   async bootstrap() {
+    // The GitHub Pages build has no backend. Skip the network (a stray host at "/" could answer
+    // with HTML) and fall straight through to the offline screen, where solo practice lives.
+    if (import.meta.env.VITE_STATIC === 'true') {
+      set({ status: 'error' });
+      return;
+    }
     try {
       const meta = get().meta ?? (await api.meta());
       set({ meta });
